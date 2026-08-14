@@ -1,5 +1,7 @@
 .DS_Store
 Thumbs.db
+IMG_*.MOV
+IMG_*.mov
 *.bak
 *~
 History/

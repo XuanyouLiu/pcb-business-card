@@ -2,7 +2,9 @@
 
 Copyright 2026 Xuanyou (Zed) Liu. SPDX-License-Identifier: CERN-OHL-P-2.0
 
-Passive NFC business card built around the NXP NT3H2111W0FT1 (NTAG I2C plus). A phone tap can read the tag; harvested RF energy can light the on-board LED when a field is present.
+Passive NFC business card built around the NXP NT3H2111W0FT1 (NTAG I2C plus). A phone tap reads the tag and opens a URL; harvested RF energy lights the on-board LED while the field is present.
+
+![Tapping the card against a phone, which pops up a notification to open the linked website](docs/demo.gif)
 
 ![Front and back render of the black PCB business card](docs/overview.jpg)
 
@@ -52,6 +54,7 @@ mechanical/          3D STEP model
 | `docs/antenna-design.md` | Coil math, Q, energy harvesting, bench notes |
 | `docs/schematic.pdf` | Schematic |
 | `docs/overview.jpg` | Front and back render |
+| `docs/demo.gif` / `docs/demo.mp4` | Tap-to-open demo |
 | `docs/gerber.zip` | Ready-to-upload fabrication archive |
 | `gerber/*.gbr` | Copper, mask, silk, paste, outline, mechanical |
 | `gerber/nc-drill.drl` | Excellon plated drill |
