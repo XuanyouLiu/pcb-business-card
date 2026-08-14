@@ -5,7 +5,7 @@
 - **Sources**: design conversation (August 2026); NXP NT3H2111/NT3H2211 datasheet; NXP AN11578; inductance model from Mohan et al. (1999)
 - **Note date**: 2026-08-14
 - **Purpose**: Record the antenna and energy-harvesting calculation trail for this credit-card NFC board so later revisions (and other 13.56 MHz coils) can reuse it
-- **Status**: First lot fabricated at JLCPCB (2-layer, 1 oz, 0.8 mm, black mask, lead-free HASL). Chip-only assembly reads at about 1 cm. Factory NDEF format issue found and fixed.
+- **Status**: First lot fabricated at JLCPCB (2-layer, 1 oz, 0.8 mm, black mask, lead-free HASL). Board 1 assembled and fully working, LED included, with C1 left unpopulated. Reads at about 1 cm. Factory NDEF format issue found and fixed.
 
 ## Executive summary
 
@@ -15,7 +15,7 @@ A from-scratch Mohan/Wheeler estimate for a 4-turn full-card loop gave about 2.4
 
 Unloaded Q is far too high for the 848 kHz load-modulation sidebands, but the chip's internal load drops Q to about 10, so no damping resistor is required. The LED hangs from harvested `VOUT` into the open-drain field-detect pin (`FD`) and is sized from AN11578's load table.
 
-Bench results matched the model: with C1 empty the card reads at about 1 cm. Write failures were not a coupling problem; NTAG I2C parts ship without a factory NDEF capability container.
+Bench results matched the model: with C1 empty the card reads at about 1 cm, and the assembled board works end to end, LED included. Write failures were not a coupling problem; NTAG I2C parts ship without a factory NDEF capability container.
 
 ## 1. Architecture and part selection
 
@@ -194,14 +194,15 @@ White silk on black mask is an inverted code. Modern phone decoders accept that;
 
 ## 7. Bench results versus the model (2026-08-14)
 
-- Chip-only assembly (no C1, no passives): stable reads at **about 1 cm**. Consistent with the predicted 14.8 MHz detune: marginal but usable. C1 was left unpopulated on board 1.
+- Chip-only stage (no passives): stable reads at **about 1 cm**. Consistent with the predicted 14.8 MHz detune: marginal but usable.
+- **Board 1 fully assembled except C1: everything works.** Reads succeed and the harvested-power LED lights from `FD` while a phone is coupled, so the "Phone Detected" artwork behaves as designed. Read range stayed at about 1 cm, so the 220 μA LED branch costs no measurable range. C1 is still unpopulated, which means the coil is still sitting near 14.8 MHz rather than the 14.0 MHz target.
 - Reads always worked; writes always failed on iOS with "tag not supported". That was **not** coupling. The NTAG I2C family ships with a blank capability container (no factory NDEF format), and iOS cannot format it through an NDEF session. One raw-session "Format as NDEF" (Smart NFC app, Advanced) per board fixes it. After that, tag status is Read/Write and NDEF writes succeed. This is a one-time production step for every remaining unit.
 
 ## Open items
 
-- [ ] Populate C1 = 6.8 pF on one board and A/B the read range against the bare-chip 1 cm baseline
-- [ ] Populate R1 / R2 / R3 / C2 / LED and confirm FD-driven lighting (flicker during polling, solid during a held read)
+- [ ] Populate C1 = 6.8 pF on one board and A/B the read range against the 1 cm baseline
 - [ ] Boards 2 to 10: solder, NDEF format, write URL, verify tap-to-open, optional password protect
+- [ ] Try a 1 kΩ R3 on one board and check whether the brighter LED costs any read range
 - [ ] If range matters later: NanoVNA plus a coupling loop to measure true $f_0$, then trim with Section 2.6
 
 ## References
