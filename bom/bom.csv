@@ -1,0 +1,8 @@
+Designator,Quantity,Value,Description,Footprint,Manufacturer part
+C1,1,6.8pF C0G,Optional LA-LB resonance trim (DNP on board 1),0603,
+C2,1,150nF,Capacitor,0603,CC0603KRX7R7BB154
+IC1,1,NT3H2111W0FT1,NXP NTAG I2C plus NFC,SOIC-8,NT3H2111W0FT1
+LED1,1,KT-0603R,Red LED,0603,KT-0603R
+R1,1,0 ohm,Jumper resistor,0603,0603WAJ0000T5E
+R2,1,100k ohm,Resistor,0603,RC0603FR-07100KL
+R3,1,2.7k ohm,LED current-limit resistor,0603,0603WAF2701T5E

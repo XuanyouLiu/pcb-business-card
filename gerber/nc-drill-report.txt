@@ -1,0 +1,9 @@
+NC drill report
+Source: Altium Designer export, 2026-08-14
+Layer pair: top copper to bottom copper
+Drill file: nc-drill.drl
+
+Tool    Hole size              Type    Count    Plated
+T1      28 mil (0.711 mm)      Round   1        PTH
+T2      30 mil (0.762 mm)      Round   2        PTH
+Total                                  3

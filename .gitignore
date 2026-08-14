@@ -1,0 +1,13 @@
+.DS_Store
+Thumbs.db
+*.bak
+*~
+History/
+__Previews/
+Project Logs for */
+Project Outputs for */
+*.PrjPcbStructure
+*.local
+*.LOG
+.vscode/
+.idea/
