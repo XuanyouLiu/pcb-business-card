@@ -22,7 +22,7 @@ Designed in Altium Designer. Open `altium/PCB_Business_Card.PrjPcb` to edit the 
 | NFC IC | NXP NT3H2111W0FT1, SOIC-8 |
 | Antenna | On-board HF coil |
 | Power | Harvested from the phone NFC field (no battery) |
-| Status | Built and working, LED included; reads at about 1 cm with C1 unpopulated |
+| Status | Built and in use, LED included; reads at about 1 cm with C1 unpopulated |
 
 ## How it works
 
